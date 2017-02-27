@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Geog 483 Leaflet Tutorial</title>
+	<!-- This tutorial is based on the official Leaflet quickstart: http://leafletjs.com/examples/quick-start/ -->
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<style>
+    	body { margin:0; padding:0; }
+    	#mapid { position:absolute; top:10px; bottom:50px; left:10px; width:1000px; height:900;}
+</style>
+
+<div id="mapid"</div>
+<script>
+
+	var mymap = L.map('mapid').setView([43.471547, -80.542407], 17);
+
+	L.tileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+	}).addTo(mymap);
+
+
+	var ev3Popup = "EV3 Building <br/> <img src ='https://uwaterloo.ca/environment/sites/ca.environment/files/uploads/images/ev3_bright_sunny_day.jpg' alt = 'EV3' width = '100'/>"; 
+	var mcPopup = "Math and Computer Building <br/> <img src= 'https://uwaterloo.ca/centre-for-teaching-excellence/sites/ca.centre-for-teaching-excellence/files/styles/body-500px-wide/public/uploads/images/mc_building.png?itok=E7vxl5Cs' alt = 'MC' width = '100'/>"; 
+	var QuantumPopup = "Mike & Ophelia Lazaridis Quantum-Nano Centre <br/> <img src = 'https://uwaterloo.ca/relativistic-quantum-information-conference/sites/ca.relativistic-quantum-information-conference/files/uploads/images/kpmb_toronto_architectural_photography_amanda_large_younes_bounhar_qnc_waterloo-1.jpg' alt = 'QNC' width = '100'/>"; 
+	var ArtsPopup = "Arts Lecture Hall <br/> <img src= 'http://www.adm.uwaterloo.ca/vtour/images/tour/buildings/AL.jpg' alt = 'AL' width = '100'/>";
+	var customOptions = 
+	{
+	' maxWidth' : '100',
+	'className' : 'custom'
+	}
+	
+	L.marker([43.467989, -80.543216]).addTo(mymap)
+		.bindPopup(ev3Popup, customOptions).openPopup();
+		
+	L.marker([43.472054, -80.543884]).addTo(mymap)
+		.bindPopup(mcPopup, customOptions).openPopup();
+		
+	L.marker([43.471288, -80.543989]).addTo(mymap)
+		.bindPopup(QuantumPopup, customOptions).openPopup();
+		
+	L.marker([43.468841, -80.541813]).addTo(mymap)
+		.bindPopup(ArtsPopup, customOptions).openPopup();
+
+
+</script>
+
+
+
+</body>
+</html>
