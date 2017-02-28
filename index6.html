@@ -23,7 +23,15 @@
 
 <div id="mapid"</div>
 <script src="https://embed.github.com/view/geojson/sharmAbhi/sharmaAbhi.github.io/master/coffeeshop.geojson" type="text/javascript"  </script>
-					
+ <script>		
+  	function onEachFeature(feature, layer) {		
+  		if (feature.properties) {		
+  			layer.bindPopup("<b>" + feature.properties.name + "</b> serves tea for $" + feature.properties.tea_price_);		
+      	}		
+  	}		
+  			
+  			
+  </script>					
  
 </body>
 </html>
